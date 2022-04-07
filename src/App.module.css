@@ -1,0 +1,197 @@
+:root {
+	--Orange: hsl(25, 97%, 53%);
+	--Light-grey: hsl(217, 12%, 63%);
+	--Medium-grey: hsl(216, 12%, 54%);
+	--Dk-blue: hsl(213, 19%, 18%);
+	--V-dk-blue: hsl(216, 12%, 8%);
+	--o-animation: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	--FS-semi-normal: 0.82rem;
+}
+
+.main {
+	position: relative;
+}
+
+/* =========== ** Card Rating  **  =========== */
+
+.cardRating,
+.cardThanks {
+	--Color-shadow: hsla(0, 0%, 0%, 0.25);
+
+	background: linear-gradient(var(--Dk-blue), var(--V-dk-blue));
+	border-radius: 0.8rem;
+	box-shadow: 0 0.3rem 0.8rem var(--Color-shadow),
+		0.3rem 0 0.8rem var(--Color-shadow);
+	max-width: 19.4rem;
+	padding: 1.5rem 1.4rem 1.8rem;
+}
+
+@media screen and (min-width: 768px) {
+	.cardRating,
+	.cardThanks {
+		border-radius: 1.3rem;
+		max-width: 21.8rem;
+		padding: 1.65rem 2.4rem 1.7rem 1.6rem;
+	}
+}
+
+.cardRating {
+	transition: opacity var(--o-animation);
+}
+
+.icon {
+	align-items: center;
+	background-color: hsl(218 14% 22%);
+	border-radius: 50%;
+	display: inline-flex;
+	height: 2.3rem;
+	justify-content: center;
+	text-align: center;
+	width: 2.3rem;
+}
+
+.icon img {
+	max-width: 33%;
+}
+
+.cardRating header h2,
+.cardThanks header h2 {
+	font-size: clamp(1.5rem, 1.8vw, 1.62rem);
+	font-weight: lighter;
+}
+
+.cardRating p,
+.cardMessage {
+	font-size: var(--FS-semi-normal);
+	line-height: 1.5;
+	margin-top: -0.5rem;
+}
+
+.cardRating p {
+	color: var(--Light-grey);
+	margin-bottom: 1.7rem;
+}
+
+.containerRating {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1.4rem;
+}
+
+@media screen and (min-width: 768px) {
+	.containerRating {
+		margin-bottom: 1.7rem;
+	}
+}
+
+.formGroup {
+	height: 2.4rem;
+	width: 2.5rem;
+}
+
+.formGroup label {
+	border-radius: 50%;
+	background-color: hsl(213, 19%, 21%);
+	color: var(--Medium-grey);
+	cursor: pointer;
+	display: inline-block;
+	font-size: 0.75rem;
+	font-weight: bold;
+	line-height: 2.4rem;
+	text-align: center;
+	transition: background-color var(--o-animation), color var(--o-animation);
+	width: inherit;
+}
+
+@media (hover: hover) {
+	.formGroup label:hover {
+		background-color: var(--Medium-grey);
+		color: hsl(0, 0%, 100%);
+	}
+}
+
+.formGroup input[type='radio'] {
+	overflow: hidden;
+	width: 0;
+}
+
+.formGroup input[type='radio']:checked ~ label {
+	background-color: var(--Orange);
+	color: hsl(0, 0%, 100%);
+}
+
+.btnSubmit {
+	background-color: var(--Orange);
+	border: none;
+	border-radius: 4rem;
+	color: hsl(0, 0%, 100%);
+	cursor: pointer;
+	font-size: 0.85rem;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
+	padding: 0.7rem;
+	transition: background-color var(--o-animation), color var(--o-animation);
+	width: 100%;
+}
+
+@media (hover: hover) {
+	.btnSubmit:hover {
+		background-color: hsl(0, 0%, 100%);
+		color: var(--Orange);
+	}
+}
+
+/* =========== ** Card Thanks  **  =========== */
+
+.cardThanks {
+	left: 0;
+	position: absolute;
+	top: 0;
+	text-align: center;
+	transform: scale(0);
+	transition: transform var(--o-animation);
+	z-index: 0;
+}
+
+@media screen and (min-width: 768px) {
+	.cardThanks {
+		padding-bottom: 1.8rem;
+		padding-right: 1.6rem;
+	}
+}
+
+.cardThanks header img {
+	margin-top: 0.6rem;
+}
+
+.cardThanks header p {
+	background-color: var(--Dk-blue);
+	border-radius: 5rem;
+	color: hsl(25deg 55% 56%);
+	font-size: var(--FS-semi-normal);
+	margin: 1.2rem auto 1.6rem;
+	padding: 0.5rem 0.9rem;
+	width: fit-content;
+}
+
+@media screen and (min-width: 768px) {
+	.cardThanks header p {
+		margin-bottom: 1.8rem;
+	}
+}
+
+.cardMessage {
+	color: var(--Light-grey);
+	margin-bottom: 0.5rem;
+}
+
+/* =========== ** Interactive classes  **  =========== */
+
+.hidden {
+	opacity: 0;
+}
+
+.show {
+	transform: scale(1);
+	z-index: 1000;
+}
